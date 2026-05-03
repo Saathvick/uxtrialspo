@@ -1,0 +1,381 @@
+================================================================================
+SPOGOMI WORLD CUP WEBSITE — FULL SUMMARY
+Generated: 2026-05-03
+================================================================================
+
+
+================================================================================
+SECTION 1: WEBSITE OVERVIEW
+================================================================================
+
+WHAT IT IS:
+A promotional/event website for the SPOGOMI World Cup — a global environmental
+competition organized by The Nippon Foundation. SPOGOMI is a Japanese concept
+combining "SPOrt" and "GOMI" (trash) — a competitive litter-picking sport.
+
+Focus: THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2025
+
+
+TECH STACK:
+- Plain HTML5 + CSS3 + Vanilla JavaScript (no frameworks)
+- Fonts: Oswald, Work Sans (Google Fonts CDN)
+- CSS: Flexbox, CSS animations, Intersection Observer API
+- No backend — fully static site
+
+
+COLOR SCHEME:
+- Primary Blue:   #0068B7 (Nippon Foundation brand)
+- Light Blue:     #3c98db
+- CTA Orange:     #f8993a (Contact Us button)
+- Green:          #00ae4d
+
+
+CONTACT:
+- Event Agency:   nikhil@anisync.com
+- User Email:     kannanclaude@gmail.com
+
+
+KEY PAGES / SECTIONS (single-page, anchor navigation):
+- Navbar              — TOP, GALLERY, MOVIES, ABOUT, SPONSORS
+- Hero Section        — Video + CTA overlay
+- Info Box            — Event announcements and updates
+- Logo Slider         — Auto-scrolling sponsor carousel
+- Message Section     — Environmental mission content
+- Gallery             — Photo tabs (2025 Qualifiers + 2023 World Cup)
+- Filmstrip           — Drag-scrollable thumbnail strip
+- Lightbox            — Fullscreen image viewer
+- Movies              — Embedded YouTube videos
+- Sponsors Section    — Partnership call-to-action
+- Footer              — Links and partner logos
+
+
+MEDIA ASSETS:
+- assets/imagepress/twofive/   — 7 images (India Qualifiers 2025)
+- assets/imagepress/           — 7 images (World Cup 2023)
+- assets/logo/                 — Sponsor logos (float, EFI, changeblue, anisync, cirqt, bac, TAC, cac)
+- assets/video/spognf.mp4      — Promotional video
+- assets/fonts/                — logo_spogominor.svg, logo_umi.svg, nf-banner.png
+- assets/icons/                — iconx.svg (X/Twitter), Group 3.svg (hamburger)
+
+
+KEY JAVASCRIPT FUNCTIONALITY:
+- Page loader overlay with pulsing animation
+- Mobile hamburger menu toggle
+- Gallery tab switching (2025 / 2023)
+- Lightbox modal: keyboard arrows, ESC, touch swipe, mouse drag
+- Filmstrip drag-scroll
+- Hero image prev/next navigation
+- Scroll-triggered fade-up animations (Intersection Observer)
+- Image protection (right-click and drag disabled on gallery)
+
+
+================================================================================
+SECTION 2: USER STORIES
+================================================================================
+
+--- VISITOR / GENERAL PUBLIC ---
+
+US-01
+As a first-time visitor, I want to see a compelling hero section with a
+promotional video, so that I immediately understand what SPOGOMI is and feel
+excited about the competition.
+
+US-02
+As a visitor, I want to read the latest event announcements (e.g., Team India's
+6th place finish, upcoming 2027 event), so that I stay informed about SPOGOMI's
+current and future activities.
+
+US-03
+As a visitor, I want a smooth page-load experience with a loader animation, so
+that the site feels polished and professional even before content appears.
+
+US-04
+As a visitor, I want the site to be fully responsive on my phone, so that I can
+browse comfortably without pinching or zooming.
+
+
+--- GALLERY / MEDIA CONSUMER ---
+
+US-05
+As a media consumer, I want to browse photos from the India Qualifiers 2025 and
+World Cup 2023 in separate tabs, so that I can view coverage from each event
+independently.
+
+US-06
+As a gallery viewer, I want to click any thumbnail in the filmstrip to jump to
+that image, so that I can quickly navigate to the photo I'm interested in.
+
+US-07
+As a gallery viewer, I want to use keyboard arrow keys and swipe gestures to
+navigate between photos in the lightbox, so that I can browse hands-free on any
+device.
+
+US-08
+As a gallery viewer, I want to open a fullscreen lightbox for any photo, so
+that I can view images in high detail without distractions.
+
+US-09
+As a content owner, I want right-click and drag-download to be disabled on
+gallery images, so that my photos are protected from unauthorized copying.
+
+
+--- SPONSOR / PARTNER ---
+
+US-10
+As a potential sponsor, I want to see a scrolling carousel of current sponsor
+logos, so that I can understand the level of existing brand association with
+SPOGOMI.
+
+US-11
+As a potential sponsor, I want a clear call-to-action in the Sponsors section
+with contact details, so that I know exactly how to reach out to discuss
+partnership opportunities.
+
+
+--- MEDIA / VIDEO CONSUMER ---
+
+US-12
+As a video viewer, I want to watch embedded YouTube highlights and rules videos
+in the Movies section, so that I can learn about the competition without leaving
+the site.
+
+
+--- MOBILE USER ---
+
+US-13
+As a mobile user, I want a hamburger menu that opens a full-screen overlay
+navigation, so that I can access all site sections without a cluttered header.
+
+US-14
+As a mobile user, I want the filmstrip to be drag-scrollable on touch, so that
+I can swipe through thumbnails naturally on my phone.
+
+
+--- ENVIRONMENTAL ADVOCATE ---
+
+US-15
+As an environmentally conscious visitor, I want to read the mission message
+about marine litter and The Nippon Foundation's goals, so that I understand the
+deeper purpose behind the competition.
+
+
+--- CONTACT / INQUIRY USER ---
+
+US-16
+As an interested party, I want a "Contact Us" button that opens my email client
+pre-addressed, so that I can reach the organizers quickly without hunting for
+contact details.
+
+US-17
+As a visitor wanting to follow news, I want a link to the official X/Twitter
+page, so that I can stay updated in real time.
+
+
+--- ACCEPTANCE CRITERIA SUMMARY ---
+
+US-01  Video autoplays (muted) on load; hero text is legible over video
+US-05  Tabs switch without page reload; active tab is visually highlighted
+US-06  Clicking a thumbnail updates the hero image and syncs filmstrip position
+US-07  Arrow keys navigate in lightbox; ESC closes it
+US-08  Lightbox opens on image click; background is fully dimmed
+US-09  Right-click context menu is suppressed on all gallery images
+US-13  Hamburger opens/closes overlay; all nav links close the menu
+US-16  Contact button composes email to nikhil@anisync.com
+
+
+================================================================================
+SECTION 3: VISITOR TYPES — WHO VISITS & WHAT THEY WANT
+================================================================================
+
+--- KNOWINGLY (came with intent) ---
+
+1. COMPETITION PARTICIPANT / TEAM MEMBER
+   Who:          Someone who competed or is registering for the next edition.
+   Looking for:  Event schedule and dates, results/rankings, gallery photos of
+                 themselves, competition rules, news about 2027.
+   Key Sections: Gallery, Info Box, Movies (rules)
+
+2. TEAM CAPTAIN / COACH
+   Who:          Organizes their local squad and represents them at the event.
+   Looking for:  Qualification criteria, official rules (rules video), contact
+                 for organizers, past results to benchmark performance, sponsor info.
+   Key Sections: Movies, Contact, Info Box, Sponsors
+
+3. EVENT ORGANIZER / COORDINATOR
+   Who:          Runs logistics — venues, volunteers, equipment.
+   Looking for:  Press-ready gallery images and video assets, official messaging,
+                 brand guidelines, contact details for core team.
+   Key Sections: Gallery, Hero, Contact
+
+4. EXISTING SPONSOR / CORPORATE PARTNER
+   Who:          A brand already featured in the logo slider.
+   Looking for:  Is their logo correctly placed and visible? How is their brand
+                 represented? Are they visible in gallery photos? General site
+                 quality to assess ROI.
+   Key Sections: Logo Slider, Gallery, Sponsors
+
+5. POTENTIAL SPONSOR SCOUTING OPPORTUNITIES
+   Who:          A CSR manager or brand strategist evaluating whether to sponsor.
+   Looking for:  Who else is sponsoring (credibility signal), scale of the event,
+                 contact to discuss packages, brand value alignment.
+   Key Sections: Logo Slider, Gallery, Sponsors, Contact
+
+6. JOURNALIST / MEDIA REPORTER
+   Who:          Covers environment, sports, or Japan-India relations.
+   Looking for:  Press-quality images, event facts and figures, official
+                 statements, contact for interviews, video footage.
+   Key Sections: Gallery, Message, Movies, Contact
+
+7. ENVIRONMENTAL NGO REPRESENTATIVE
+   Who:          Works for an ocean cleanup or zero-waste organization.
+   Looking for:  Partnership potential, actual environmental impact, credibility
+                 check (Nippon Foundation), contact for collaboration.
+   Key Sections: Message, Contact, Footer
+
+8. THE NIPPON FOUNDATION STAFF / AFFILIATE
+   Who:          Employee or partner of the global organizing body.
+   Looking for:  How India's chapter represents the brand, messaging consistency
+                 with global identity, quality of media assets, public errors.
+   Key Sections: Entire site
+
+9. GOVERNMENT / MUNICIPAL OFFICIAL
+   Who:          Ministry of Environment, local body, or Swachh Bharat initiative.
+   Looking for:  Is this credible enough to officially endorse? Scale and reach,
+                 who the organizers are, potential for MOU or co-branding.
+   Key Sections: Message, Info Box, Contact
+
+10. SCHOOL / COLLEGE STUDENT (ENVIRONMENT CLUB)
+    Who:          Young activist or club secretary wanting to get their institution
+                  involved.
+    Looking for:  How to participate, registration/eligibility, rules video, gallery
+                  for inspiration, contact to bring SPOGOMI to their campus.
+    Key Sections: Movies (rules), Contact, Gallery, Info Box
+
+11. PARENT OF A PARTICIPANT
+    Who:          Parent whose child competed, trying to follow along.
+    Looking for:  Photos of their child in the gallery, results (how did India/
+                  their team do?), what the event is about, video coverage.
+    Key Sections: Gallery, Info Box, Movies
+
+12. VOLUNTEER
+    Who:          Helped on event day with logistics, crowd control, etc.
+    Looking for:  Photos they might be in, proof of involvement (resume/cert),
+                  any follow-up from organizers, next edition dates.
+    Key Sections: Gallery, Info Box, Contact
+
+13. PHOTOGRAPHER / VIDEOGRAPHER WHO SHOT THE EVENT
+    Who:          The professional hired to cover the event.
+    Looking for:  Are their images used correctly and credited? Quality of
+                  presentation, portfolio reference.
+    Key Sections: Gallery
+
+14. SOCIAL MEDIA MANAGER FOR A PARTNER BRAND
+    Who:          Manages Instagram/LinkedIn for one of the sponsors.
+    Looking for:  Official imagery to repurpose, event hashtags/handles, shareable
+                  video clips, public sentiment.
+    Key Sections: Gallery, Movies, Info Box
+
+15. COMPETITOR FROM ANOTHER COUNTRY
+    Who:          Team captain from Japan, UK, or another SPOGOMI nation.
+    Looking for:  How strong is Team India? India chapter's structure, any
+                  collaboration potential, competitive research.
+    Key Sections: Info Box, Gallery, Message
+
+
+--- UNKNOWINGLY (landed without specific intent) ---
+
+16. CASUAL SOCIAL MEDIA SCROLLER
+    Who:          Saw a reel or story about SPOGOMI and tapped the link.
+    Looking for:  Instant visual engagement. Will bounce in ~20 seconds unless
+                  the hero video or gallery hooks them immediately.
+    Key Sections: Hero, Gallery
+
+17. GOOGLER — "LITTER PICKING COMPETITION INDIA"
+    Who:          Environmentally curious, discovered SPOGOMI via search.
+    Looking for:  What is this event, is it legitimate, can I join or watch,
+                  when is the next one.
+    Key Sections: Message, Info Box, Contact
+
+18. GOOGLER — SEARCHED "SPOGOMI" AFTER HEARING THE WORD
+    Who:          Heard it on a podcast, news segment, or from a friend.
+    Looking for:  What does SPOGOMI mean? Quick "explain it to me" overview.
+    Key Sections: Hero, Message
+
+19. CURIOUS PERSON WHO TRACED A SPONSOR LOGO
+    Who:          Saw "anisync" or another partner logo and Googled it.
+    Looking for:  What is this brand associated with? Is SPOGOMI the right
+                  context? Mostly exploring.
+    Key Sections: Logo Slider, Message, Footer
+
+20. STUDENT DOING ENVIRONMENTAL RESEARCH PROJECT
+    Who:          Writing a paper on gamification of sustainability or
+                  sports-for-environment programs.
+    Looking for:  Background info, citable statistics and quotes, who funds it
+                  (Nippon Foundation), visual evidence for presentations.
+    Key Sections: Message, Gallery, Movies, Info Box
+
+21. JOB SEEKER
+    Who:          Wants to work in event management, sustainability, or NGOs.
+    Looking for:  Who runs this (anisync), contact email, scale and prestige of
+                  the event. No job listings here — will move to LinkedIn.
+    Key Sections: Footer, Contact
+
+22. JOURNALIST COVERING THE NIPPON FOUNDATION (NOT SPOGOMI SPECIFICALLY)
+    Who:          Writing about the foundation's global programs broadly.
+    Looking for:  SPOGOMI as one data point, who runs it in India, media assets,
+                  contact for a spokesperson.
+    Key Sections: Message, Info Box, Contact
+
+23. TOURISM / CULTURAL RESEARCHER
+    Who:          Studies Japan-India cultural or diplomatic exchange programs.
+    Looking for:  SPOGOMI as a case study in cultural export, Nippon Foundation's
+                  India engagement, scale and reception of a Japanese concept in India.
+    Key Sections: Message, Footer, Info Box
+
+24. ENVIRONMENTALIST VIA BLOG LINK
+    Who:          Follows a sustainability blog, clicked a link in a roundup.
+    Looking for:  Real environmental impact vs. greenwashing, who backs it
+                  (Nippon Foundation = credibility), how to support or amplify.
+    Key Sections: Message, Info Box
+
+25. CURIOUS KID (10–14 YEARS OLD)
+    Who:          Followed a share from a parent or teacher, clicked a link.
+    Looking for:  The video (immediate hook), cool gallery photos, "can I do
+                  this?" — will bounce quickly unless visuals grab them.
+    Key Sections: Hero video, Gallery
+
+
+--- VISITOR SUMMARY MATRIX ---
+
+#   Visitor Type                      Primary Goal                Key Section(s)
+--  --------------------------------  --------------------------  -------------------------
+1   Participant                       Results + own photos        Gallery, Info Box
+2   Team Captain / Coach              Rules + contact             Movies, Contact, Info Box
+3   Event Organizer                   Media assets + messaging    Gallery, Hero
+4   Existing Sponsor                  Verify their presence       Logo Slider, Gallery
+5   Potential Sponsor                 Evaluate + contact          Sponsors, Gallery, Contact
+6   Journalist                        Media assets + facts        Gallery, Message, Contact
+7   NGO Representative                Partnership eval            Message, Contact
+8   Nippon Foundation Staff           Brand consistency check     Entire site
+9   Government Official               Credibility + scale         Message, Info Box, Contact
+10  School/College Student            How to join                 Movies, Contact, Gallery
+11  Parent of Participant             Find child in photos        Gallery
+12  Volunteer                         Photos + next edition       Gallery, Info Box
+13  Photographer / Videographer       Quality of their work       Gallery
+14  Social Media Manager              Shareable assets            Gallery, Movies
+15  Foreign Competitor                India's performance         Info Box, Gallery
+16  Social Media Scroller             Instant visual hook         Hero, Gallery
+17  Googler (litter picking)          What is this event          Message, Info Box
+18  Googler (SPOGOMI word)            Definition + overview       Hero, Message
+19  Sponsor Logo Tracer               Brand context               Logo Slider, Footer
+20  Research Student                  Citable info + visuals      Message, Gallery, Movies
+21  Job Seeker                        Who runs this               Footer, Contact
+22  Nippon Foundation Journalist      Foundation's India work     Message, Info Box
+23  Cultural / Tourism Researcher     Japan-India exchange case   Message, Footer
+24  Environmentalist (blog link)      Impact + credibility        Message, Info Box
+25  Curious Kid                       Cool visuals                Hero video, Gallery
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================

@@ -1,0 +1,491 @@
+================================================================================
+DEEPSEEK USER STORIES — SPOGOMI WORLD CUP WEBSITE
+Generated: 2026-05-03
+Focus: UI/Interaction Feedback Mechanisms (no color changes)
+================================================================================
+
+Color palette preserved:
+  Primary Blue:   #0068B7
+  Light Blue:     #3c98db
+  CTA Orange:     #f8993a
+  Green:          #00ae4d
+  White:          #ffffff
+
+================================================================================
+USER STORIES WITH UI FOCUS
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPETITION PARTICIPANT / TEAM MEMBER
+--------------------------------------------------------------------------------
+Who:  Someone who competed or is registering for the next edition.
+Want: Results, photos of themselves, dates, rules.
+
+User Story:
+  As a participant, I want the gallery thumbnails to scale up smoothly 
+  (transform: scale(1.08)) with a blue glow (#0068B7) on hover, and the 
+  lightbox image to transition with a subtle zoom-in effect when I click 
+  through photos, so that browsing event photos feels responsive and 
+  polished.
+
+UI Mechanisms:
+  - Filmstrip thumbnail: hover → scale(1.08) + box-shadow glow
+  - Lightbox prev/next: smooth crossfade + scale transition
+  - Active thumbnail: bright border + glow ring
+
+--------------------------------------------------------------------------------
+2. TEAM CAPTAIN / COACH
+--------------------------------------------------------------------------------
+Who:  Organizes local squad, represents team at event.
+Want: Qualification criteria, official rules, contact.
+
+User Story:
+  As a team captain, I want the "CONTACT US" button to lift upward 
+  (translateY(-3px)) with a soft shadow when I hover over it, and to 
+  show a brief ripple animation when clicked, so that I get tactile 
+  feedback that my action registered.
+
+UI Mechanisms:
+  - Button hover: translateY(-3px) + box-shadow: 0 8px 25px rgba(0,0,0,0.2)
+  - Button click: material-style ripple effect
+  - Pointer cursor + slight brightness boost on hover
+
+--------------------------------------------------------------------------------
+3. EVENT ORGANIZER / COORDINATOR
+--------------------------------------------------------------------------------
+Who:  Runs logistics — venues, volunteers, equipment.
+Want: Press-ready gallery, official messaging, contact.
+
+User Story:
+  As an event organizer, I want the hero image gallery to auto-advance 
+  slowly when idle (5s interval), pause on hover, and show left/right 
+  navigation arrows with a backdrop blur that fades in smoothly, so 
+  that I can review images hands-free during event planning.
+
+UI Mechanisms:
+  - Hero image: auto-play slideshow on idle, pause on hover
+  - Nav arrows: fade in on hero hover (opacity 0→1, 0.3s ease)
+  - Arrow background: translucent blur (backdrop-filter: blur(6px))
+
+--------------------------------------------------------------------------------
+4. EXISTING SPONSOR / CORPORATE PARTNER
+--------------------------------------------------------------------------------
+Who:  A brand already featured in the logo slider.
+Want: Is their logo correctly placed and visible?
+
+User Story:
+  As an existing sponsor, I want the logo slider to pause its infinite 
+  scroll animation when I hover over any logo, so that I can inspect 
+  my brand's logo placement and quality without chasing a moving target.
+
+UI Mechanisms:
+  - .slide-track:hover { animation-play-state: paused; }
+  - Individual logo: hover → scale(1.1) + drop-shadow
+
+--------------------------------------------------------------------------------
+5. POTENTIAL SPONSOR SCOUTING OPPORTUNITIES
+--------------------------------------------------------------------------------
+Who:  CSR manager / brand strategist evaluating sponsorship.
+Want: Existing sponsors, event scale, contact details.
+
+User Story:
+  As a potential sponsor, I want the sponsor section call-to-action 
+  ("Email us") to have an underline animation that draws from left to 
+  right on hover, and the footer partner logos to gently scale up, so 
+  that the site feels premium and professionally maintained.
+
+UI Mechanisms:
+  - "Email us" link: ::after underline, width 0→100% on hover
+  - Footer logo: hover → scale(1.05) + opacity 1
+  - Smooth transition: 0.3s cubic-bezier
+
+--------------------------------------------------------------------------------
+6. JOURNALIST / MEDIA REPORTER
+--------------------------------------------------------------------------------
+Who:  Covers environment, sports, or Japan-India relations.
+Want: Press-quality images, event facts, official statements.
+
+User Story:
+  As a journalist, I want to right-click on gallery images and see it 
+  disabled (already done), but also see a subtle toast or tooltip 
+  saying "Image protected" when I try, so that I understand the site 
+  is actively protecting media assets.
+
+UI Mechanisms:
+  - Right-click prevention toast: appears briefly, fades out
+  - Lightbox: full-screen with dark backdrop, smooth open/close
+  - Image loading: blur-up placeholder before full-res loads
+
+--------------------------------------------------------------------------------
+7. ENVIRONMENTAL NGO REPRESENTATIVE
+--------------------------------------------------------------------------------
+Who:  Works for ocean cleanup / zero-waste organization.
+Want: Partnership potential, environmental impact, credibility.
+
+User Story:
+  As an NGO representative, I want the MESSAGE section paragraphs to 
+  fade-and-slide-up sequentially as I scroll, each with a staggered 
+  delay (0s, 0.15s, 0.3s), so that reading the mission statement feels 
+  like a guided, cinematic experience.
+
+UI Mechanisms:
+  - Staggered fade-up animation (already partially implemented)
+  - Message heading (h1): letter-spacing animation on scroll reveal
+  - Paragraphs: opacity 0→1 + translateY 40px→0
+
+--------------------------------------------------------------------------------
+8. THE NIPPON FOUNDATION STAFF / AFFILIATE
+--------------------------------------------------------------------------------
+Who:  Employee or partner of the global organizing body.
+Want: Brand consistency, messaging accuracy, site quality.
+
+User Story:
+  As a Nippon Foundation staff member, I want the navbar links to have 
+  a soft underline that expands from center on hover (already done), 
+  and a subtle background blur to appear on the navbar when I scroll 
+  past the hero video, so that navigation stays legible over any content.
+
+UI Mechanisms:
+  - Navbar scroll background: rgba(0,104,183,0.9) + backdrop-filter: blur(12px)
+  - Navbar transition: background 0.3s ease
+  - Active page indicator: bold + underline
+
+--------------------------------------------------------------------------------
+9. GOVERNMENT / MUNICIPAL OFFICIAL
+--------------------------------------------------------------------------------
+Who:  Ministry of Environment, local body, Swachh Bharat.
+Want: Credibility, scale, who the organizers are.
+
+User Story:
+  As a government official, I want to see a scroll-progress bar at the 
+  very top of the page (3px tall, #f8993a orange) that fills from 0% 
+  to 100% as I scroll, so that I immediately understand the page length 
+  and my reading progress without guessing.
+
+UI Mechanisms:
+  - Scroll progress bar: fixed top, 0→100% width via JS
+  - Color: #f8993a (matching CTA button for consistency)
+  - Z-index above everything except page loader
+
+--------------------------------------------------------------------------------
+10. SCHOOL / COLLEGE STUDENT (ENVIRONMENT CLUB)
+--------------------------------------------------------------------------------
+Who:  Young activist wanting to get institution involved.
+Want: How to participate, eligibility, rules video, contact.
+
+User Story:
+  As a student, I want the YouTube video iframes to gently scale 
+  (transform: scale(1.01)) on hover with a soft shadow, and the 
+  video container's border-radius to remain smooth, so that the 
+  media section feels interactive and modern.
+
+UI Mechanisms:
+  - YouTube iframe wrapper: hover → scale(1.01) + box-shadow boost
+  - Play button overlay on hover (CSS pseudo-element)
+  - Smooth transition: 0.4s ease
+
+--------------------------------------------------------------------------------
+11. PARENT OF A PARTICIPANT
+--------------------------------------------------------------------------------
+Who:  Parent whose child competed.
+Want: Photos of their child, results, event info.
+
+User Story:
+  As a parent, I want the filmstrip thumbnails to have a magnified 
+  preview tooltip when I hover over each thumbnail (showing a larger 
+  version), so that I can identify which photos contain my child 
+  without clicking through every thumbnail.
+
+UI Mechanisms:
+  - Thumbnail tooltip: shows enlarged version on hover (data-* attr + CSS)
+  - Hero image: zoom on hover (scale(1.03)) already done
+  - Click anywhere on hero → opens lightbox
+
+--------------------------------------------------------------------------------
+12. VOLUNTEER
+--------------------------------------------------------------------------------
+Who:  Helped on event day.
+Want: Photos, proof of involvement, next edition.
+
+User Story:
+  As a volunteer, I want the gallery tab buttons to have a pill-slider 
+  indicator that smoothly slides between "INDIA QUALIFIERS 2025" and 
+  "WORLD CUP 2023" when I click, rather than an instant snap, so that 
+  tab switching feels fluid and delightful.
+
+UI Mechanisms:
+  - Tab indicator: sliding pill background (JS-driven)
+  - Tab content: fade + translateY transition (already done)
+  - Active tab: white background + shadow (already done)
+
+--------------------------------------------------------------------------------
+13. PHOTOGRAPHER / VIDEOGRAPHER
+--------------------------------------------------------------------------------
+Who:  Professional who shot the event.
+Want: Are images used correctly and credited?
+
+User Story:
+  As a photographer, I want the gallery images to load with a 
+  progressive blur-up effect (small blurry placeholder → sharp full 
+  image), and for the lightbox to show a subtle caption area at the 
+  bottom where credits can be displayed, so that my work is presented 
+  with professional polish.
+
+UI Mechanisms:
+  - Blur-up image loading (low-res placeholder + blur filter → sharp)
+  - Lightbox caption: slides up from bottom on open
+  - Image transition: scale(0.92)→scale(1) with 0.4s ease
+
+--------------------------------------------------------------------------------
+14. SOCIAL MEDIA MANAGER FOR PARTNER BRAND
+--------------------------------------------------------------------------------
+Who:  Manages Instagram/LinkedIn for sponsor.
+Want: Official imagery, event hashtags, shareable clips.
+
+User Story:
+  As a social media manager, I want a quick-access "Share" button 
+  overlay on gallery images in the lightbox (appearing on hover), 
+  so that I can quickly copy or share event photos to my brand's 
+  social channels.
+
+UI Mechanisms:
+  - Share button: appears on lightbox hover (opacity fade)
+  - Copy link to clipboard on click + brief "Copied!" tooltip
+  - Button style: ghost button with white border
+
+--------------------------------------------------------------------------------
+15. FOREIGN COMPETITOR (OTHER COUNTRY)
+--------------------------------------------------------------------------------
+Who:  Team captain from Japan, UK, or other SPOGOMI nation.
+Want: India team's strength, collaboration potential.
+
+User Story:
+  As a foreign competitor, I want the gallery to load quickly with 
+  prioritized image loading (lazy loading with eager first-image), 
+  and for all interactive elements to have instant visual feedback 
+  (sub-100ms), so that browsing the India chapter's site feels 
+  snappy and responsive even from overseas.
+
+UI Mechanisms:
+  - Lazy loading: loading="lazy" on gallery images
+  - First image: loading="eager" for instant hero
+  - All hover transitions: 0.2s–0.3s for snappy feel
+
+--------------------------------------------------------------------------------
+16. CASUAL SOCIAL MEDIA SCROLLER
+--------------------------------------------------------------------------------
+Who:  Saw a reel/story about SPOGOMI, tapped the link.
+Want: Instant visual hook, will bounce in ~20 seconds.
+
+User Story:
+  As a casual scroller, I want the hero video to play immediately 
+  (autoplay muted — already done), and I want the CTA button below 
+  to pulse gently (scale 1↔1.03) every 3 seconds to draw my 
+  attention, so that I am guided toward the next action without 
+  thinking.
+
+UI Mechanisms:
+  - CTA button: gentle pulse animation (infinite, 3s cycle)
+  - Hero video: full-width, no controls, autoplay
+  - First viewport: everything above fold loads first
+
+--------------------------------------------------------------------------------
+17. GOOGLER — "LITTER PICKING COMPETITION INDIA"
+--------------------------------------------------------------------------------
+Who:  Environmentally curious, discovered via search.
+Want: What is this event, is it legitimate?
+
+User Story:
+  As a Google discovery visitor, I want the hero heading to have a 
+  subtle parallax effect as I scroll (moves slower than content), 
+  so that the page depth feels premium and engaging, encouraging 
+  me to scroll further.
+
+UI Mechanisms:
+  - Hero section: subtle parallax on scroll (transform: translateY)
+  - Content reveal: fade-up on scroll (Intersection Observer)
+  - Info box: card lift on hover
+
+--------------------------------------------------------------------------------
+18. GOOGLER — SEARCHED "SPOGOMI" (HEARD THE WORD)
+--------------------------------------------------------------------------------
+Who:  Heard on podcast/news, wants definition.
+Want: Quick explainer — "What is SPOGOMI?"
+
+User Story:
+  As a word-curious visitor, I want the hero video to show a play 
+  overlay only when I hover (otherwise clean), and I want the 
+  MESSAGE section to visually distinguish key statistics with a 
+  highlighted background or icon, so that I can scan for the 
+  core message quickly.
+
+UI Mechanisms:
+  - Video: clean on idle, play overlay on hover
+  - Stats: highlighted block with subtle left border accent
+  - Typography: clear hierarchy via font-weight + size
+
+--------------------------------------------------------------------------------
+19. CURIOUS PERSON WHO TRACED A SPONSOR LOGO
+--------------------------------------------------------------------------------
+Who:  Saw "anisync" / other partner logo elsewhere, Googled it.
+Want: What brand association? Mostly exploring.
+
+User Story:
+  As a logo tracer, I want each sponsor logo in the slider to have 
+  a subtle tooltip on hover showing the brand name (title attribute 
+  or CSS tooltip), so that I can identify unfamiliar logos without 
+  leaving the page.
+
+UI Mechanisms:
+  - Logo tooltip: on hover, brand name appears below logo
+  - Slide: stops scrolling on hover (animation-play-state: paused)
+  - Logo: grayscale 0% → full color on hover (if not already)
+
+--------------------------------------------------------------------------------
+20. RESEARCH STUDENT
+--------------------------------------------------------------------------------
+Who:  Writing paper on gamification of sustainability.
+Want: Citable info, quotes, visual evidence.
+
+User Story:
+  As a research student, I want the entire page to have a smooth 
+  scroll experience (scroll-behavior: smooth on html), and I want 
+  a "back to top" button that fades in when I scroll down 300px 
+  and smoothly scrolls me up when clicked, so that navigating 
+  between sections for note-taking is effortless.
+
+UI Mechanisms:
+  - Smooth scroll: scroll-behavior: smooth on <html>
+  - Back-to-top button: appears at 300px scroll (JS), fades in
+  - Button: circular, #0068B7 background, white arrow icon
+
+--------------------------------------------------------------------------------
+21. JOB SEEKER
+--------------------------------------------------------------------------------
+Who:  Wants to work in event management / sustainability.
+Want: Who runs this (anisync), contact email.
+
+User Story:
+  As a job seeker, I want the footer contact links to have a 
+  underline animation on hover and a subtle icon next to the email 
+  address, so that clicking to reach out feels intentional and 
+  well-presented.
+
+UI Mechanisms:
+  - Footer links: hover underline (from left, 0.3s)
+  - Email link: mail icon + animated underline
+  - Footer section: clean spacing, hover state on all links
+
+--------------------------------------------------------------------------------
+22. NIPPON FOUNDATION JOURNALIST
+--------------------------------------------------------------------------------
+Who:  Writing about foundation's global programs.
+Want: SPOGOMI as data point, contact for spokesperson.
+
+User Story:
+  As a foundation journalist, I want a clean, distraction-free 
+  reading experience in the MESSAGE section, with generous 
+  line-height (1.6), max-width for readability, and the info 
+  box to have a subtle white-card lift on hover, so that the 
+  site feels authoritative and trustworthy.
+
+UI Mechanisms:
+  - Info box: hover → translateY(-4px) + enhanced shadow
+  - Message section: max-width 900px, line-height 1.6
+  - Card design: white bg, border-radius 20px, shadow
+
+--------------------------------------------------------------------------------
+23. CULTURAL / TOURISM RESEARCHER
+--------------------------------------------------------------------------------
+Who:  Studies Japan-India cultural exchange programs.
+Want: SPOGOMI as case study, Nippon Foundation engagement.
+
+User Story:
+  As a cultural researcher, I want the footer to display partner 
+  logos with a unified height and spacing, and on hover each logo 
+  should gently scale up with a shadow, so that the footer feels 
+  like a credible "trusted by" section.
+
+UI Mechanisms:
+  - Partner logos: uniform height, consistent gap
+  - Logo hover: scale(1.05) + drop-shadow
+  - Footer statement: clean typography, muted color (#666)
+
+--------------------------------------------------------------------------------
+24. ENVIRONMENTALIST (VIA BLOG LINK)
+--------------------------------------------------------------------------------
+Who:  Follows sustainability blog, clicked a link.
+Want: Real impact vs. greenwashing, credibility check.
+
+User Story:
+  As an environmentalist, I want the page to feel fast and 
+  responsive — images should load progressively, the page loader 
+  should disappear smoothly (already done), and every interactive 
+  element should give immediate haptic-like visual feedback, so 
+  that the site reflects the professionalism of the organization 
+  behind it.
+
+UI Mechanisms:
+  - Page loader: fade out with 0.5s ease (already done)
+  - Image loading: blur-up transition
+  - All interactive: sub-300ms feedback on hover/click
+
+--------------------------------------------------------------------------------
+25. CURIOUS KID (10–14 YEARS OLD)
+--------------------------------------------------------------------------------
+Who:  Followed a share from parent/teacher.
+Want: Cool visuals — video, gallery photos.
+
+User Story:
+  As a curious kid, I want the hero video to be the first thing I 
+  see — big, bright, and moving — and when I hover over the gallery 
+  thumbnails they should bounce up slightly and turn fully colorful, 
+  so that the site feels playful and exciting.
+
+UI Mechanisms:
+  - Hero video: prominent, autoplay, full-width
+  - Thumbnails: hover → translateY(-5px) + scale(1.08) + grayscale 0%
+  - Fun factor: bouncy cubic-bezier timing on hover transitions
+
+
+================================================================================
+SUMMARY OF UI FEEDBACK MECHANISMS (grouped by type)
+================================================================================
+
+HOVER EFFECTS:
+  - Button lift (+translateY + shadow)  ─── .sign-up-v, .sign-up-t, .cosplay
+  - Link underline animation  ─── navbar (done), footer, sponsor CTA
+  - Card lift (+translateY + shadow)  ─── .info-box
+  - Logo scale (+scale(1.05–1.1))  ─── slider logos, footer logos
+  - Thumbnail zoom (+scale + glow)  ─── filmstrip images
+  - Video overlay pulse  ─── .overlay-img
+  - YouTube iframe scale  ─── .youtube-video
+
+CLICK EFFECTS:
+  - Ripple effect  ─── all buttons
+  - Lightbox smooth open/close  ─── gallery images
+  - Tab pill-slider  ─── gallery tabs
+  - Back-to-top button  ─── scroll-triggered
+
+SCROLL EFFECTS:
+  - Fade-up staggered reveal  ─── message section (done)
+  - Scroll progress bar  ─── top of page
+  - Navbar background on scroll  ─── sticky header blur
+  - Parallax hero  ─── subtle scroll speed difference
+  - Smooth scroll  ─── html { scroll-behavior: smooth; }
+
+ANIMATION / MOTION:
+  - Logo slider pause on hover  ─── animation-play-state: paused
+  - CTA button gentle pulse  ─── attention draw
+  - Loading blur-up  ─── progressive image loading
+  - Active thumbnail glow ring  ─── gallery filmstrip
+  - Lightbox image transition (scale + fade)  ─── prev/next
+
+UTILITY:
+  - Tooltip on sponsor logos  ─── brand name on hover
+  - "Image protected" toast  ─── right-click prevention feedback
+  - Share button in lightbox  ─── social media export
+
+================================================================================
+END OF DOCUMENT
+================================================================================

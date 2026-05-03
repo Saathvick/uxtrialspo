@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spogomi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Work+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Fade-Up Animation -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .message-section {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .message-section p {
+      line-height: 1.6;
+      font-size: clamp(1rem, 2.5vw, 2rem);
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .message-section h1 {
+      color: #3c98db;
+      font-size: clamp(3rem, 9vw, 13rem);
+      font-weight: bold;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+
+    .message-logo img {
+      max-width: 100%;
+      height: clamp(8rem, 20vw, 12rem);
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+  </style>
+</head>
+
+<!-- Fade-Up Intersection Observer -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+  });
+</script>
+
+<body>
+
+  <!-- LOADING OVERLAY -->
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/fonts/logo_spogominor.svg" alt="Loading..."
+      style="width: 120px; height: auto; animation: pulse 1.5s ease-in-out infinite;">
+  </div>
+
+  <div class="wrapper" style="opacity: 0; transition: opacity 0.4s ease;">
+    <div class="hero">
+
+      <!-- NAVBAR -->
+      <header class="navbar">
+        <nav>
+          <ul>
+            <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">TOP</a></li>
+            <li><a href="#gallery-section">GALLERY</a></li>
+            <li><a href="#movies-section">MOVIES</a></li>
+            <li><a href="https://www.spogomi.or.jp/about/" target="_blank">ABOUT</a></li>
+            <li><a href="#sponsors-section">SPONSORS</a></li>
+            <li class="latest-news">
+              <a href="https://x.com/SpogomiWorldCup" target="_blank">
+                LATEST NEWS <img class="xlogo" src="assets/icons/iconx.svg">
+              </a>
+            </li>
+
+            <li class="hamburger"><img src="assets/icons/Group 3.svg"></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+
+        <div class="images-container">
+          <div class="video">
+            <video autoplay muted loop playsinline oncontextmenu="return false;">
+              <source src="assets/video/spognf.mp4" type="video/mp4">
+            </video>
+          </div>
+          <a href="https://nf-spogomiwc.com/en/" target="_blank">
+            <img src="assets/icons/overlayvids.png" class="overlay-img">
+          </a>
+        </div>
+
+        <div class="padd" style="padding-bottom:3rem;"></div>
+
+        <!-- INFO BOX -->
+        <div class="info-box">
+          <div class="info-label">
+            <span>INFO</span>
+            <div class="underline"></div>
+          </div>
+
+          <div class="info-content">
+            <b>
+              <p><span style="font-size: larger;">2025.10.29</span><br>
+                TEAM INDIA PLACED 6TH AT THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2025 </p>
+            </b>
+            <b>
+              <p style="margin-top:10px;">THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2027 WILL BE ANNOUNCED SOON!</p>
+            </b>
+          </div>
+        </div>
+
+        <!-- CONTACT BUTTON -->
+        <div class="butcont">
+          <button class="sign-up-v" onclick="window.location.href='mailto:nikhil@anisync.com'">
+            CONTACT US
+          </button>
+        </div>
+
+        <!-- LOGO SLIDER -->
+        <div class="sliderbreak">
+          <div class="slider">
+            <div class="slide-track">
+              <div class="slide"><img src="assets/logo/float.png"></div>
+              <div class="slide"><img src="assets/logo/EFI.png"></div>
+              <div class="slide"><img src="assets/logo/changeblue.png"></div>
+              <div class="slide"><img src="assets/logo/anisync.png"></div>
+              <div class="slide"><img src="assets/logo/cirqt.png"></div>
+              <div class="slide"><img src="assets/logo/bac.png"></div>
+              <div class="slide"><img src="assets/logo/TAC.png"></div>
+              <div class="slide"><img src="assets/logo/cac.png"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MESSAGE SECTION -->
+        <div class="message-section fade-up">
+          <div class="message-section">
+            <h1 class="fade-up message-title">MESSAGE</h1>
+            <div class="message-logo fade-up">
+              <a href="https://en.nippon-foundation.or.jp/who/mission">
+                <img src="assets/fonts/logo_umi.svg" alt="Big Logo">
+              </a>
+            </div>
+            <p class="fade-up">
+              The global issue of marine litter continues to escalate, with approximately 80% originating from
+              land-based sources, particularly urban areas. The last line of defense in preventing this issue is litter
+              collection. Last year, the first “SPOGOMI” World Cup, which saw participation from 21 countries, made a
+              huge impact by connecting nations and people, and spreading the practice of litter-picking from Japan on a
+              global scale.
+            </p>
+            <p class="fade-up">
+              And finally, the much-anticipated “THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2025” has been officially
+              announced!
+            </p>
+            <p class="fade-up">
+              Teams from around the world will gather again for intense competition, surpassing the excitement of the
+              previous event. Through international pick-up, friendships and cooperation will form across borders,
+              creating inspiring moments where sports and environmental protection come together.
+              This global movement is far from over. It will continue to grow, with ongoing efforts aimed at changing
+              our future for the better.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- GALLERY SECTION -->
+        <div id="gallery-section" class="gallery">
+          <h2>GALLERY</h2>
+        </div>
+        <div class="gallery-sub">
+          <h4>INDIA QUALIFIERS</h4>
+        </div>
+
+        <!-- CAROUSEL #1 -->
+        <div class="carousel-wrapper">
+          <div class="carousel-container">
+
+            <div class="carousel-track">
+              <div class="carousel-slide active"><img src="assets/imagepress/twofive/1.JPG"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/twofive/2.JPG"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/twofive/3.JPG"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/twofive/4.JPG"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/twofive/5.JPG"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/twofive/6.JPG"></div>
+            </div>
+
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+
+            <div class="carousel-thumbs">
+              <img src="assets/imagepress/twofive/1.JPG" class="active">
+              <img src="assets/imagepress/twofive/2.JPG">
+              <img src="assets/imagepress/twofive/3.JPG">
+              <img src="assets/imagepress/twofive/4.JPG">
+              <img src="assets/imagepress/twofive/5.JPG">
+              <img src="assets/imagepress/twofive/6.JPG">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CAROUSEL #2 -->
+        <div class="gallery-sub">
+          <h4>SPOGOMI WORLD CUP 2023</h4>
+        </div>
+
+        <div class="carousel-wrapper">
+          <div class="carousel-container">
+
+            <div class="carousel-track">
+              <div class="carousel-slide active"><img src="assets/imagepress/Press1-min.jpg"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/Press2-min.jpg"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/Press3-min.jpg"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/Press4-min.jpg"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/Press5-min.jpg"></div>
+              <div class="carousel-slide"><img src="assets/imagepress/Spogomi Winners Cheque Presentation(1)-min.jpg">
+              </div>
+            </div>
+
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+
+            <div class="carousel-thumbs">
+              <img src="assets/imagepress/Press1-min.jpg" class="active">
+              <img src="assets/imagepress/Press2-min.jpg">
+              <img src="assets/imagepress/Press3-min.jpg">
+              <img src="assets/imagepress/Press4-min.jpg">
+              <img src="assets/imagepress/Press5-min.jpg">
+              <img src="assets/imagepress/Spogomi Winners Cheque Presentation(1)-min.jpg">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MOVIES -->
+        <div id="movies-section" class="gallery">
+          <h2>MOVIES</h2>
+        </div>
+        <div class="youtube-video">
+          <iframe src="https://www.youtube.com/embed/a1p5vPPmgsQ"></iframe>
+        </div>
+
+        <div class="gallery">
+          <h2>RULES</h2>
+        </div>
+        <div class="youtube-video-rules">
+          <iframe src="https://www.youtube.com/embed/7JaC9PD5M3g"></iframe>
+        </div>
+
+        <!-- SPONSORS -->
+        <div id="sponsors-section" class="gallery">
+          <h2>SPONSORS</h2>
+        </div>
+        <div class="sponsors">
+          <p>Would you like to be a part of Spogomi?</p>
+          <p>Email us at <a href="mailto:nikhil@anisync.com">nikhil@anisync.com</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="overlay-header">
+      <button class="close-btn" id="closeBtn">X</button>
+    </div>
+    <ul>
+      <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">TOP</a></li>
+      <li><a href="#gallery-section">GALLERY</a></li>
+      <li><a href="#movies-section">MOVIES</a></li>
+      <li><a href="https://www.spogomi.or.jp/about/" target="_blank">ABOUT</a></li>
+      <li><a href="#sponsors-section">SPONSORS</a></li>
+      <li class="latest-news"><a href="https://x.com/SpogomiWorldCup" target="_blank">The latest news <img class="xlogo"
+            src="assets/icons/iconx.svg"></a></li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <img class="spogi" src="./assets/fonts/logo_spogominor.svg">
+      <ul class="footerli">
+        <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="blue-link">TOP</a>
+        </li>
+        <li><a href="#gallery-section">GALLERY</a></li>
+        <li><a href="#movies-section">MOVIES</a></li>
+        <li><a href="https://www.spogomi.or.jp/about/" target="_blank" class="blue-link">ABOUT</a></li>
+        <li><a href="#sponsors-section">SPONSORS</a></li>
+        <li class="latest-news"><a href="https://x.com/SpogomiWorldCup" target="_blank">The latest news <img
+              class="xlogo" src="assets/icons/iconx.svg"></a></li>
+      </ul>
+    </div>
+    <div class="footer-statement">
+      <p>THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2025 is organized by THE NIPPON FOUNDATION.</p>
+    </div>
+    <div class="footer-logos">
+      <a href="https://en.nippon-foundation.or.jp/" target="_blank">
+        <img src="assets/fonts/nf-banner.png" alt="The Nippon Foundation">
+      </a>
+    </div>
+  </footer>
+
+  <!-- MOBILE MENU SCRIPT -->
+  <script>
+    const hamburgerItem = document.querySelector('.hamburger');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const closeBtn = document.getElementById('closeBtn');
+
+    hamburgerItem.addEventListener('click', () => mobileOverlay.classList.add('active'));
+    closeBtn.addEventListener('click', () => mobileOverlay.classList.remove('active'));
+
+    // Close overlay when any link inside is clicked
+    mobileOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileOverlay.classList.remove('active'));
+    });
+  </script>
+
+
+  <!-- ⭐⭐⭐ FIXED MULTI-CAROUSEL SCRIPT ⭐⭐⭐ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      document.querySelectorAll(".carousel-container").forEach(container => {
+
+        const slides = [...container.querySelectorAll(".carousel-slide")];
+        const thumbs = [...container.querySelectorAll(".carousel-thumbs img")];
+        const next = container.querySelector(".carousel-btn.next");
+        const prev = container.querySelector(".carousel-btn.prev");
+
+        let current = slides.findIndex(s => s.classList.contains("active"));
+        if (current === -1) current = 0;
+
+        const update = (i) => {
+          slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+          thumbs.forEach((t, idx) => t.classList.toggle("active", idx === i));
+        };
+
+        update(current);
+
+        if (next)
+          next.addEventListener("click", () => {
+            current = (current + 1) % slides.length;
+            update(current);
+          });
+
+        if (prev)
+          prev.addEventListener("click", () => {
+            current = (current - 1 + slides.length) % slides.length;
+            update(current);
+          });
+
+        thumbs.forEach((thumb, i) =>
+          thumb.addEventListener("click", () => {
+            current = i;
+            update(i);
+          })
+        );
+
+      });
+
+    });
+  </script>
+
+
+
+  <!-- PAGE LOADER SCRIPT -->
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector(".wrapper").style.opacity = "1";
+      document.getElementById("pageLoader").classList.add("loaded");
+    });
+  </script>
+
+  <style>
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+
+</body>
+
+</html>

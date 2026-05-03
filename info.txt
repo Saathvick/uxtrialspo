@@ -1,0 +1,11 @@
+background_color : #0068B7
+while slanting line
+3 strips(rect 8,10,9) as SVG
+
+first is background_color, 
+above that 3 strips
+
+then comes navbar (font: oswald)
+next is 
+photo
+
