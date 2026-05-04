@@ -197,15 +197,9 @@
         <div id="gallery-section" class="gallery fade-up">
           <h2>GALLERY</h2>
         </div>
-        <!-- GALLERY TABS -->
-        <div class="gallery-tabs fade-up">
-          <button class="gallery-tab active" data-tab="tab-2025">Spogomi World Cup 2025 India Qualifiers Bengaluru Leg</button>
-          <button class="gallery-tab" data-tab="tab-2023">Spogomi World Cup 2023 India Qualifiers</button>
-        </div>
-
-        <!-- TAB PANEL: 2025 -->
-        <div class="gallery-tab-panel active" id="tab-2025">
-          <div class="gallery-showcase fade-up card-style">
+        <!-- GALLERY CARDS (SIDE BY SIDE) -->
+        <div class="gallery-cards-container fade-up">
+          <div class="card-style">
             <div class="card-date">2025</div>
             <div class="hero-image">
               <img src="assets/imagepress/twofive/1.JPG" alt="India Qualifiers 2025" loading="eager">
@@ -215,11 +209,8 @@
             </div>
             <a href="gallery-2025.html" class="view-more-btn-card">View More</a>
           </div>
-        </div>
 
-        <!-- TAB PANEL: 2023 -->
-        <div class="gallery-tab-panel" id="tab-2023">
-          <div class="gallery-showcase fade-up card-style">
+          <div class="card-style">
             <div class="card-date">2023</div>
             <div class="hero-image">
               <img src="assets/imagepress/Spogomi Winners-min.JPG" alt="World Cup 2023" loading="eager">
@@ -316,17 +307,7 @@
     });
   </script>
 
-  <!-- GALLERY TAB SCRIPT -->
-  <script>
-    document.querySelectorAll('.gallery-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('.gallery-tab-panel').forEach(panel => panel.classList.remove('active'));
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
-  </script>
+
 
   <!-- PAGE LOADER SCRIPT -->
   <script>
