@@ -45,7 +45,7 @@ body {
 
 .wrapper {
   width: 100%;
-  overflow-x: clip;
+  overflow: hidden;
 }
 
 .hero {
@@ -482,7 +482,6 @@ body {
   background: #ffffff;
   padding: 2rem 0 3rem;
   margin: 2rem 0;
-  width: 100%;
 }
 
 /* GALLERY */
