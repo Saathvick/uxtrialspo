@@ -477,6 +477,13 @@ body {
 
 
 
+/* GALLERY BLOCK */
+.gallery-block {
+  background: #ffffff;
+  padding: 2rem 0 3rem;
+  margin: 2rem 0;
+}
+
 /* GALLERY */
 .gallery {
   margin: 1rem 0;
