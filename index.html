@@ -194,31 +194,31 @@
         </div>
 
         <!-- GALLERY SECTION -->
-        <div id="gallery-section" class="gallery">
+        <div id="gallery-section" class="gallery fade-up">
           <h2>GALLERY</h2>
         </div>
         <!-- GALLERY TABS -->
-        <div class="gallery-tabs">
+        <div class="gallery-tabs fade-up">
           <button class="gallery-tab active" data-tab="tab-2025">INDIA QUALIFIERS 2025</button>
           <button class="gallery-tab" data-tab="tab-2023">WORLD CUP 2023</button>
         </div>
 
         <!-- TAB PANEL: 2025 -->
         <div class="gallery-tab-panel active" id="tab-2025">
-          <div class="gallery-showcase">
+          <div class="gallery-showcase fade-up">
             <div class="hero-image" data-gallery="2025">
-              <img src="assets/imagepress/twofive/1.JPG" alt="India Qualifiers 2025">
+              <img src="assets/imagepress/twofive/1.JPG" alt="India Qualifiers 2025" loading="eager">
               <button class="hero-nav hero-prev">&#10094;</button>
               <button class="hero-nav hero-next">&#10095;</button>
             </div>
             <div class="filmstrip" data-gallery="2025">
-              <img src="assets/imagepress/twofive/1.JPG" class="active" data-index="0">
-              <img src="assets/imagepress/twofive/2.JPG" data-index="1">
-              <img src="assets/imagepress/twofive/3.JPG" data-index="2">
-              <img src="assets/imagepress/twofive/4.JPG" data-index="3">
-              <img src="assets/imagepress/twofive/5.JPG" data-index="4">
-              <img src="assets/imagepress/twofive/6.JPG" data-index="5">
-              <img src="assets/imagepress/twofive/7.JPG" data-index="6">
+              <img src="assets/imagepress/twofive/1.JPG" class="active" data-index="0" loading="lazy">
+              <img src="assets/imagepress/twofive/2.JPG" data-index="1" loading="lazy">
+              <img src="assets/imagepress/twofive/3.JPG" data-index="2" loading="lazy">
+              <img src="assets/imagepress/twofive/4.JPG" data-index="3" loading="lazy">
+              <img src="assets/imagepress/twofive/5.JPG" data-index="4" loading="lazy">
+              <img src="assets/imagepress/twofive/6.JPG" data-index="5" loading="lazy">
+              <img src="assets/imagepress/twofive/7.JPG" data-index="6" loading="lazy">
             </div>
           </div>
         </div>
@@ -227,18 +227,18 @@
         <div class="gallery-tab-panel" id="tab-2023">
           <div class="gallery-showcase">
             <div class="hero-image" data-gallery="2023">
-              <img src="assets/imagepress/Press1-min.jpg" alt="World Cup 2023">
+              <img src="assets/imagepress/Press1-min.jpg" alt="World Cup 2023" loading="eager">
               <button class="hero-nav hero-prev">&#10094;</button>
               <button class="hero-nav hero-next">&#10095;</button>
             </div>
             <div class="filmstrip" data-gallery="2023">
-              <img src="assets/imagepress/Press1-min.jpg" class="active" data-index="0">
-              <img src="assets/imagepress/Press2-min.jpg" data-index="1">
-              <img src="assets/imagepress/Press3-min.jpg" data-index="2">
-              <img src="assets/imagepress/Press4-min.jpg" data-index="3">
-              <img src="assets/imagepress/Press5-min.jpg" data-index="4">
-              <img src="assets/imagepress/Spogomi Winners Cheque Presentation(1)-min.jpg" data-index="5">
-              <img src="assets/imagepress/Spogomi Winners-min.JPG" data-index="6">
+              <img src="assets/imagepress/Press1-min.jpg" class="active" data-index="0" loading="lazy">
+              <img src="assets/imagepress/Press2-min.jpg" data-index="1" loading="lazy">
+              <img src="assets/imagepress/Press3-min.jpg" data-index="2" loading="lazy">
+              <img src="assets/imagepress/Press4-min.jpg" data-index="3" loading="lazy">
+              <img src="assets/imagepress/Press5-min.jpg" data-index="4" loading="lazy">
+              <img src="assets/imagepress/Spogomi Winners Cheque Presentation(1)-min.jpg" data-index="5" loading="lazy">
+              <img src="assets/imagepress/Spogomi Winners-min.JPG" data-index="6" loading="lazy">
             </div>
           </div>
         </div>
@@ -376,6 +376,29 @@
       let currentImages = [];
       let currentIndex = 0;
 
+      /* Touch swipe on hero image for mobile gallery navigation */
+      document.querySelectorAll('.hero-image').forEach(hero => {
+        let hx = 0, hy = 0, hd = false;
+        hero.addEventListener('touchstart', e => {
+          hx = e.touches[0].clientX;
+          hy = e.touches[0].clientY;
+          hd = false;
+        }, { passive: true });
+        hero.addEventListener('touchmove', e => {
+          const dx = e.touches[0].clientX - hx;
+          if (Math.abs(dx) > 10) hd = true;
+        }, { passive: true });
+        hero.addEventListener('touchend', e => {
+          if (!hd) return;
+          const dx = e.changedTouches[0].clientX - hx;
+          const dy = e.changedTouches[0].clientY - hy;
+          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+            const btn = dx < 0 ? hero.querySelector('.hero-next') : hero.querySelector('.hero-prev');
+            if (btn) btn.click();
+          }
+        }, { passive: true });
+      });
+
       /* Filmstrip thumbnail clicks → swap hero image */
       document.querySelectorAll('.filmstrip img').forEach(thumb => {
         thumb.addEventListener('click', () => {
@@ -387,6 +410,17 @@
           thumb.classList.add('active');
 
           heroImg.src = thumb.src;
+        });
+      });
+
+      /* Hero image click → open lightbox */
+      document.querySelectorAll('.hero-image').forEach(hero => {
+        hero.addEventListener('click', (e) => {
+          if (e.target.closest('.hero-nav')) return;
+          const filmstrip = hero.closest('.gallery-showcase').querySelector('.filmstrip');
+          const activeThumb = filmstrip.querySelector('.active');
+          const index = parseInt(activeThumb.dataset.index) || 0;
+          openLightbox(index);
         });
       });
 
@@ -547,22 +581,26 @@
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
 
   <script>
-    /* Scroll Progress Bar */
+    /* Clean scroll handlers — no gimmicks */
     window.addEventListener('scroll', function() {
-      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      document.getElementById('scrollProgress').style.width = (winScroll / height) * 100 + '%';
-    });
+      var progressBar = document.getElementById('scrollProgress');
+      var navBar = document.querySelector('.navbar');
+      var backBtn = document.getElementById('backToTop');
+      var y = window.scrollY;
 
-    /* Navbar Scroll Shadow */
-    window.addEventListener('scroll', function() {
-      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 100);
-    });
+      /* Progress bar width */
+      if (progressBar) {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = (winScroll / height) * 100 + '%';
+      }
 
-    /* Back-to-Top Visibility */
-    window.addEventListener('scroll', function() {
-      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 300);
-    });
+      /* Navbar shadow */
+      if (navBar) navBar.classList.toggle('scrolled', y > 50);
+
+      /* Back-to-top visibility */
+      if (backBtn) backBtn.classList.toggle('visible', y > 300);
+    }, { passive: true });
 
     /* Button Ripple Effect */
     document.querySelectorAll('.sign-up-v, .sign-up-t, .cosplay').forEach(function(btn) {
