@@ -775,6 +775,7 @@ body {
 
 /* Hero image */
 .hero-image {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
