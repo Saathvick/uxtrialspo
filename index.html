@@ -206,54 +206,21 @@
         <!-- TAB PANEL: 2025 -->
         <div class="gallery-tab-panel active" id="tab-2025">
           <div class="gallery-showcase fade-up">
-            <div class="hero-image" data-gallery="2025">
+            <div class="hero-image">
               <img src="assets/imagepress/twofive/1.JPG" alt="India Qualifiers 2025" loading="eager">
-              <button class="hero-nav hero-prev">&#10094;</button>
-              <button class="hero-nav hero-next">&#10095;</button>
             </div>
-            <div class="filmstrip" data-gallery="2025">
-              <img src="assets/imagepress/twofive/1.JPG" class="active" data-index="0" loading="lazy">
-              <img src="assets/imagepress/twofive/2.JPG" data-index="1" loading="lazy">
-              <img src="assets/imagepress/twofive/3.JPG" data-index="2" loading="lazy">
-              <img src="assets/imagepress/twofive/4.JPG" data-index="3" loading="lazy">
-              <img src="assets/imagepress/twofive/5.JPG" data-index="4" loading="lazy">
-              <img src="assets/imagepress/twofive/6.JPG" data-index="5" loading="lazy">
-              <img src="assets/imagepress/twofive/7.JPG" data-index="6" loading="lazy">
-            </div>
+            <a href="gallery-2025.html" class="view-more-btn">VIEW MORE</a>
           </div>
         </div>
 
         <!-- TAB PANEL: 2023 -->
         <div class="gallery-tab-panel" id="tab-2023">
-          <div class="gallery-showcase">
-            <div class="hero-image" data-gallery="2023">
+          <div class="gallery-showcase fade-up">
+            <div class="hero-image">
               <img src="assets/imagepress/Press1-min.jpg" alt="World Cup 2023" loading="eager">
-              <button class="hero-nav hero-prev">&#10094;</button>
-              <button class="hero-nav hero-next">&#10095;</button>
             </div>
-            <div class="filmstrip" data-gallery="2023">
-              <img src="assets/imagepress/Press1-min.jpg" class="active" data-index="0" loading="lazy">
-              <img src="assets/imagepress/Press2-min.jpg" data-index="1" loading="lazy">
-              <img src="assets/imagepress/Press3-min.jpg" data-index="2" loading="lazy">
-              <img src="assets/imagepress/Press4-min.jpg" data-index="3" loading="lazy">
-              <img src="assets/imagepress/Press5-min.jpg" data-index="4" loading="lazy">
-              <img src="assets/imagepress/Spogomi Winners Cheque Presentation(1)-min.jpg" data-index="5" loading="lazy">
-              <img src="assets/imagepress/Spogomi Winners-min.JPG" data-index="6" loading="lazy">
-            </div>
+            <a href="gallery-2023.html" class="view-more-btn">VIEW MORE</a>
           </div>
-        </div>
-
-        <!-- FULLSCREEN LIGHTBOX -->
-        <div class="lightbox" id="lightbox">
-          <button class="lightbox-close" id="lightboxClose">&times;</button>
-          <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
-          <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-          <div class="lightbox-content" id="lightboxContent">
-            <img id="lightboxImg" src="" alt="">
-            <div class="lightbox-caption" id="lightboxCaption"></div>
-          </div>
-          <div class="lightbox-counter" id="lightboxCounter"></div>
-          <div class="lightbox-thumbstrip" id="lightboxThumbs"></div>
         </div>
 
         <!-- MOVIES -->
@@ -348,196 +315,9 @@
         document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         document.querySelectorAll('.gallery-tab-panel').forEach(panel => panel.classList.remove('active'));
-        const targetPanel = document.getElementById(tab.dataset.tab);
-        targetPanel.classList.add('active');
-
-        // Re-trigger grid animations
-        targetPanel.querySelectorAll('.grid-item').forEach(item => {
-          item.style.animation = 'none';
-          item.offsetHeight; // force reflow
-          item.style.animation = '';
-        });
+        document.getElementById(tab.dataset.tab).classList.add('active');
       });
     });
-  </script>
-
-  <!-- LIGHTBOX + GALLERY INTERACTION SCRIPT -->
-  <script>
-    (() => {
-      const lightbox = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lightboxImg');
-      const lbCaption = document.getElementById('lightboxCaption');
-      const lbCounter = document.getElementById('lightboxCounter');
-      const lbThumbs = document.getElementById('lightboxThumbs');
-      const lbClose = document.getElementById('lightboxClose');
-      const lbPrev = document.getElementById('lightboxPrev');
-      const lbNext = document.getElementById('lightboxNext');
-
-      let currentImages = [];
-      let currentIndex = 0;
-
-      /* Touch swipe on hero image for mobile gallery navigation */
-      document.querySelectorAll('.hero-image').forEach(hero => {
-        let hx = 0, hy = 0, hd = false;
-        hero.addEventListener('touchstart', e => {
-          hx = e.touches[0].clientX;
-          hy = e.touches[0].clientY;
-          hd = false;
-        }, { passive: true });
-        hero.addEventListener('touchmove', e => {
-          const dx = e.touches[0].clientX - hx;
-          if (Math.abs(dx) > 10) hd = true;
-        }, { passive: true });
-        hero.addEventListener('touchend', e => {
-          if (!hd) return;
-          const dx = e.changedTouches[0].clientX - hx;
-          const dy = e.changedTouches[0].clientY - hy;
-          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-            const btn = dx < 0 ? hero.querySelector('.hero-next') : hero.querySelector('.hero-prev');
-            if (btn) btn.click();
-          }
-        }, { passive: true });
-      });
-
-      /* Filmstrip thumbnail clicks → swap hero image */
-      document.querySelectorAll('.filmstrip img').forEach(thumb => {
-        thumb.addEventListener('click', () => {
-          const filmstrip = thumb.closest('.filmstrip');
-          const showcase = thumb.closest('.gallery-showcase');
-          const heroImg = showcase.querySelector('.hero-image img');
-
-          filmstrip.querySelectorAll('img').forEach(t => t.classList.remove('active'));
-          thumb.classList.add('active');
-
-          heroImg.src = thumb.src;
-        });
-      });
-
-      /* Hero image click → open lightbox */
-      document.querySelectorAll('.hero-image').forEach(hero => {
-        hero.addEventListener('click', (e) => {
-          if (e.target.closest('.hero-nav')) return;
-          const filmstrip = hero.closest('.gallery-showcase').querySelector('.filmstrip');
-          const activeThumb = filmstrip.querySelector('.active');
-          const index = parseInt(activeThumb.dataset.index) || 0;
-          openLightbox(index);
-        });
-      });
-
-      /* Filmstrip drag-scroll */
-      document.querySelectorAll('.filmstrip').forEach(strip => {
-        let isDown = false, startX, scrollLeft;
-        strip.addEventListener('mousedown', e => {
-          if (e.target.tagName === 'IMG') return;
-          isDown = true;
-          startX = e.pageX - strip.offsetLeft;
-          scrollLeft = strip.scrollLeft;
-        });
-        strip.addEventListener('mouseleave', () => isDown = false);
-        strip.addEventListener('mouseup', () => isDown = false);
-        strip.addEventListener('mousemove', e => {
-          if (!isDown) return;
-          e.preventDefault();
-          strip.scrollLeft = scrollLeft - (e.pageX - strip.offsetLeft - startX) * 1.5;
-        });
-      });
-
-      /* Lightbox open */
-      function openLightbox(index) {
-        const panel = document.querySelector('.gallery-tab-panel.active');
-        const thumbs = panel.querySelectorAll('.filmstrip img');
-        currentImages = [];
-        thumbs.forEach(t => currentImages.push(t.src));
-        currentIndex = index;
-
-        lbThumbs.innerHTML = '';
-        currentImages.forEach((src, i) => {
-          const th = document.createElement('img');
-          th.src = src;
-          th.addEventListener('click', () => showSlide(i));
-          lbThumbs.appendChild(th);
-        });
-
-        showSlide(currentIndex);
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      function showSlide(i) {
-        currentIndex = (i + currentImages.length) % currentImages.length;
-        lbImg.style.opacity = '0';
-        lbImg.style.transform = 'scale(0.92)';
-        setTimeout(() => {
-          lbImg.src = currentImages[currentIndex];
-          lbCaption.textContent = '';
-          lbCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
-          lbThumbs.querySelectorAll('img').forEach((t, idx) =>
-            t.classList.toggle('active', idx === currentIndex)
-          );
-          const at = lbThumbs.querySelector('.active');
-          if (at) at.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          requestAnimationFrame(() => {
-            lbImg.style.opacity = '1';
-            lbImg.style.transform = 'scale(1)';
-          });
-        }, 150);
-      }
-
-      /* Lightbox controls */
-      lbClose.addEventListener('click', closeLightbox);
-      lbPrev.addEventListener('click', () => showSlide(currentIndex - 1));
-      lbNext.addEventListener('click', () => showSlide(currentIndex + 1));
-      lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-
-      /* Keyboard */
-      document.addEventListener('keydown', e => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
-        if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
-      });
-
-      /* Touch swipe */
-      let tx = 0, ty = 0, td = false;
-      lightbox.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; td = true; }, { passive: true });
-      lightbox.addEventListener('touchend', e => {
-        if (!td) return; td = false;
-        const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) { dx < 0 ? showSlide(currentIndex + 1) : showSlide(currentIndex - 1); }
-      }, { passive: true });
-
-      /* Mouse drag in lightbox */
-      let md = false, mx = 0;
-      lightbox.addEventListener('mousedown', e => { if (e.target.tagName === 'BUTTON') return; md = true; mx = e.clientX; e.preventDefault(); });
-      lightbox.addEventListener('mousemove', e => { if (!md) return; const d = e.clientX - mx; if (Math.abs(d) > 5) lbImg.style.transform = 'scale(1) translateX(' + (d * 0.3) + 'px)'; });
-      lightbox.addEventListener('mouseup', e => { if (!md) return; md = false; const d = e.clientX - mx; lbImg.style.transform = 'scale(1)'; if (Math.abs(d) > 80) { d < 0 ? showSlide(currentIndex + 1) : showSlide(currentIndex - 1); } });
-
-      // Hero Navigation Script
-      document.querySelectorAll('.hero-nav').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const showcase = btn.closest('.gallery-showcase');
-          const filmstrip = showcase.querySelector('.filmstrip');
-          const thumbs = Array.from(filmstrip.querySelectorAll('img'));
-          const activeIndex = thumbs.findIndex(t => t.classList.contains('active'));
-          let newIndex = activeIndex;
-
-          if (btn.classList.contains('hero-prev')) {
-            newIndex = (activeIndex - 1 + thumbs.length) % thumbs.length;
-          } else {
-            newIndex = (activeIndex + 1) % thumbs.length;
-          }
-
-          thumbs[newIndex].click();
-          thumbs[newIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-      });
-    })();
   </script>
 
   <!-- PAGE LOADER SCRIPT -->

@@ -436,6 +436,163 @@ body {
   z-index: 2;
 }
 
+
+/* ======================================== */
+/* GALLERY DETAIL PAGE GRID                 */
+/* ======================================== */
+
+.gallery-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gallery-page-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery-grid-item {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  background: #004b8d;
+}
+
+.gallery-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.gallery-grid-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.gallery-grid-item img[src*="Spogomi Winners-min"] {
+  object-fit: contain;
+  background: #004b8d;
+}
+
+.gallery-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Gallery page lightbox overlay */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.gallery-lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.gallery-lightbox img {
+  max-width: 85vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transform: scale(0.92);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.gallery-lightbox.active img {
+  transform: scale(1);
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 10001;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-lightbox-close:hover {
+  opacity: 1;
+}
+
+.gallery-back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.gallery-back-link:hover {
+  color: #ffffff;
+}
+
+/* ======================================== */
+/* RESPONSIVE                               */
+/* ======================================== */
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .gallery-grid-item img {
+    height: 150px;
+  }
+
+  .gallery-page-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .gallery-grid-item img {
+    height: 120px;
+  }
+}
+
 /* ========================= */
 /* Fade-Up Scroll Animation  */
 /* ========================= */
@@ -576,6 +733,32 @@ body {
 .hero-image:hover img {
   transform: scale(1.03);
   filter: brightness(1) saturate(1.1);
+}
+
+/* View More button */
+.view-more-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  padding: 0.7rem 2.5rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.view-more-btn:hover {
+  background: #ffffff;
+  color: #0068B7;
+  border-color: #ffffff;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Hero navigation buttons */
