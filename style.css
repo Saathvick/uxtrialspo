@@ -699,6 +699,7 @@ body {
   align-items: center;
   flex: 1;
   min-width: 280px;
+  height: 100%;
   text-align: center;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
@@ -762,15 +763,17 @@ body {
   font-weight: 600;
   font-size: 0.95rem;
   color: #fff;
-  background: #1059a4;
+  background: #0068B7;
   border-radius: 4px;
-  padding: 0.6rem 2.5rem;
+  padding: 0.7rem 0;
+  width: 180px;
+  text-align: center;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
 .view-more-btn-card:hover {
-  background: #0a3d73;
+  background: #004d88;
 }
 
 /* Hero image */
