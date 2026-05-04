@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spogomi World Cup 2025 India Qualifiers Chennai Finals</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Work+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/fonts/logo_spogominor.svg" alt="Loading..."
+      style="width: 120px; height: auto; animation: pulse 1.5s ease-in-out infinite;">
+  </div>
+
+  <div class="wrapper" style="opacity: 0; transition: opacity 0.4s ease;">
+    <div class="hero">
+
+      <header class="navbar">
+        <nav>
+          <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="index.html#gallery-section">GALLERY</a></li>
+            <li><a href="index.html#movies-section">MOVIES</a></li>
+            <li><a href="https://www.spogomi.or.jp/about/" target="_blank">ABOUT</a></li>
+            <li><a href="index.html#sponsors-section">SPONSORS</a></li>
+            <li class="latest-news">
+              <a href="https://x.com/SpogomiWorldCup" target="_blank">
+                LATEST NEWS <img class="xlogo" src="assets/icons/iconx.svg">
+              </a>
+            </li>
+            <li class="hamburger"><img src="assets/icons/Group 3.svg"></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="gallery-page-content">
+        <a href="index.html#gallery-section" class="gallery-back-link">&larr; Back to Gallery</a>
+        <h1 class="gallery-page-title">Spogomi World Cup 2025 India Qualifiers Chennai Finals</h1>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-grid-item"><img src="assets/imagepress/threefive/1_1.png" alt="Chennai Photo 1" loading="lazy"></div>
+          <div class="gallery-grid-item"><img src="assets/imagepress/threefive/2_1.png" alt="Chennai Photo 2" loading="lazy"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="gallery-lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <img class="spogi" src="./assets/fonts/logo_spogominor.svg">
+      <ul class="footerli">
+        <li><a href="index.html" class="blue-link">TOP</a></li>
+        <li><a href="index.html#gallery-section">GALLERY</a></li>
+        <li><a href="index.html#movies-section">MOVIES</a></li>
+        <li><a href="https://www.spogomi.or.jp/about/" target="_blank" class="blue-link">ABOUT</a></li>
+        <li><a href="index.html#sponsors-section">SPONSORS</a></li>
+        <li class="latest-news"><a href="https://x.com/SpogomiWorldCup" target="_blank">The latest news <img class="xlogo" src="assets/icons/iconx.svg"></a></li>
+      </ul>
+    </div>
+    <div class="footer-statement">
+      <p>THE NIPPON FOUNDATION SPOGOMI WORLD CUP 2025 is organized by THE NIPPON FOUNDATION.</p>
+    </div>
+    <div class="footer-logos">
+      <a href="https://en.nippon-foundation.or.jp/" target="_blank">
+        <img src="assets/fonts/nf-banner.png" alt="The Nippon Foundation">
+      </a>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector(".wrapper").style.opacity = "1";
+      document.getElementById("pageLoader").classList.add("loaded");
+    });
+
+    window.addEventListener('scroll', function() {
+      var progressBar = document.getElementById('scrollProgress');
+      var backBtn = document.getElementById('backToTop');
+      var y = window.scrollY;
+      if (progressBar) {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = (winScroll / height) * 100 + '%';
+      }
+      if (backBtn) backBtn.classList.toggle('visible', y > 300);
+    }, { passive: true });
+
+    /* Gallery lightbox */
+    const lightbox = document.getElementById('galleryLightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCloseBtn = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-grid-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lbCloseBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
