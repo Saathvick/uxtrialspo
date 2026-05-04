@@ -726,6 +726,64 @@ body {
   padding: 2rem 5% 3rem;
 }
 
+.card-style {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.card-date {
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.card-style .hero-image {
+  border-radius: 4px;
+  box-shadow: none;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+}
+
+.card-details {
+  margin-top: 1.5rem;
+}
+
+.card-details h3 {
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.view-more-btn-card {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  background: #1059a4;
+  border-radius: 4px;
+  padding: 0.6rem 2.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.view-more-btn-card:hover {
+  background: #0a3d73;
+}
+
 /* Hero image */
 .hero-image {
   position: relative;
