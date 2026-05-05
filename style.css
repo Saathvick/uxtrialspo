@@ -457,7 +457,26 @@ body {
   letter-spacing: 0.08em;
   color: rgba(255,255,255,0.7);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform-origin: left center;
+  animation: pulse-attention 2s infinite ease-in-out;
+}
+
+.gallery-back-link:hover {
+  color: #ffffff;
+  animation-play-state: paused;
+  transform: scale(1.05);
+}
+
+@keyframes pulse-attention {
+  0%, 100% {
+    transform: scale(1);
+    color: rgba(255,255,255,0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    color: #ffffff;
+  }
 }
 
 .gallery-page-title {
