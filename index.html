@@ -433,12 +433,19 @@
       t._timeout = setTimeout(function() { t.style.opacity = '0'; }, 1500);
     }
 
+    /* Force page to top on reload (prevent scroll restoration) */
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+
     /* Clean URL hash after anchor jump */
     window.addEventListener('load', function() {
       if (window.location.hash) {
         setTimeout(function() {
           history.replaceState(null, null, window.location.pathname + window.location.search);
         }, 50);
+      } else {
+        window.scrollTo(0, 0);
       }
     });
   </script>
