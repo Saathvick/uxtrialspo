@@ -1253,13 +1253,6 @@ body {
 
 .sponsors a {
   color: #fff;
-  display: inline-block;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.sponsors a:hover {
-  transform: scale(1.05);
 }
 
 /* MOBILE OVERLAY */
@@ -1905,6 +1898,27 @@ html {
   .slide:hover img {
     transform: scale(1.1);
   }
+}
+
+/* Sponsor CTA underline animation */
+.sponsors a {
+  position: relative;
+  text-decoration: none;
+}
+
+.sponsors a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.sponsors a:hover::after {
+  width: 100%;
 }
 
 
