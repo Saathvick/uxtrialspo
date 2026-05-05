@@ -1252,15 +1252,14 @@ body {
 }
 
 .sponsors a {
-  color: #0068B7;
+  color: #fff;
   display: inline-block;
   text-decoration: none;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .sponsors a:hover {
   transform: scale(1.05);
-  color: #004d88;
 }
 
 /* MOBILE OVERLAY */
