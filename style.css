@@ -779,26 +779,25 @@ body {
 
 .card-badges {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
   gap: 0.5rem;
 }
 
 .card-badges span {
   font-family: 'Work Sans', sans-serif;
   font-size: clamp(0.7rem, 1vw, 0.8rem);
-  font-weight: bold;
-  padding: 0.4rem 0.6rem;
-  border-radius: 12px;
-  background-color: #fff0f0;
-  color: #d32f2f;
-  border: 1px solid rgba(211, 47, 47, 0.2);
-  white-space: normal;
-  text-align: center;
-  flex: 1 1 45%;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background-color: #f0f8ff;
+  color: #0068B7;
+  border: 1px solid rgba(0, 104, 183, 0.2);
+  white-space: nowrap;
+  flex: 1;
 }
 
 .view-more-btn-card {
