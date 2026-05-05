@@ -1869,7 +1869,7 @@ html {
 
 .bounce-on-scroll {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
   transition: opacity 0.5s ease;
 }
 
@@ -1879,10 +1879,10 @@ html {
 }
 
 @keyframes bounce-twice {
-  0% { transform: scale(0.9); }
-  30% { transform: scale(1.1); }
+  0% { transform: scale(0.95); }
+  30% { transform: scale(1.04); }
   55% { transform: scale(1); }
-  80% { transform: scale(1.1); }
+  80% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
 
