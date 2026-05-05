@@ -1856,13 +1856,15 @@ html {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Logo slider pause + individual hover */
-.slide-track:hover {
-  animation-play-state: paused;
-}
+/* Logo slider pause + individual hover (desktop only) */
+@media (min-width: 992px) {
+  .slide-track:hover {
+    animation-play-state: paused;
+  }
 
-.slide:hover img {
-  transform: scale(1.1);
+  .slide:hover img {
+    transform: scale(1.1);
+  }
 }
 
 /* Sponsor CTA underline animation */
