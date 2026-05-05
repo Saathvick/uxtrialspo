@@ -1350,17 +1350,13 @@ body {
 }
 
 .footerli li a {
-  color: #333;
+  color: #0068B7;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footerli li a.blue-link {
-  color: #0055A4;
-}
-
 .footerli li a:hover {
-  color: #0055A4;
+  color: #004d88;
   opacity: 80%;
 }
 
@@ -1375,12 +1371,12 @@ body {
 }
 
 .footerli .latest-news a {
-  color: #0055A4;
+  color: #0068B7;
   text-decoration: none;
 }
 
 .footerli .latest-news a:hover {
-  color: #003366;
+  color: #004d88;
 }
 
 .footer-statement {
