@@ -67,7 +67,7 @@
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+    document.querySelectorAll(".fade-up, .bounce-on-scroll").forEach(el => observer.observe(el));
   });
 </script>
 
@@ -122,7 +122,7 @@
         <div class="padd" style="padding-bottom:3rem;"></div>
 
         <!-- INFO BOX -->
-        <div class="info-box">
+        <div class="info-box bounce-on-scroll">
           <div class="info-label">
             <span>INFO</span>
             <div class="underline"></div>
