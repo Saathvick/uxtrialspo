@@ -1252,7 +1252,15 @@ body {
 }
 
 .sponsors a {
-  color: #fff;
+  color: #0068B7;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sponsors a:hover {
+  transform: scale(1.05);
+  color: #004d88;
 }
 
 /* MOBILE OVERLAY */
@@ -1900,26 +1908,6 @@ html {
   }
 }
 
-/* Sponsor CTA underline animation */
-.sponsors a {
-  position: relative;
-  text-decoration: none;
-}
-
-.sponsors a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-.sponsors a:hover::after {
-  width: 100%;
-}
 
 /* YouTube video hover scale */
 .youtube-video,
