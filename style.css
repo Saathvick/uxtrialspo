@@ -1876,19 +1876,17 @@ html {
 .bounce-on-scroll.show {
   opacity: 1;
   transform: scale(1);
-  animation: bounce-twice 1.2s cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: bounce-once 0.8s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
-@keyframes bounce-twice {
+@keyframes bounce-once {
   0% { transform: scale(0.95); }
-  30% { transform: scale(1.04); }
-  55% { transform: scale(1); }
-  80% { transform: scale(1.04); }
+  50% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
 
 .info-box:hover {
-  transform: translateY(-4px) scale(1.12);
+  transform: translateY(-4px) scale(1.03);
 }
 
 /* Logo slider pause + individual hover (desktop only) */
