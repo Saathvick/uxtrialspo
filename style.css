@@ -1887,7 +1887,7 @@ html {
 }
 
 .info-box:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
