@@ -721,7 +721,6 @@ body {
   height: 100%;
   text-align: center;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer;
 }
 
 @media (min-width: 992px) {
@@ -730,6 +729,9 @@ body {
   }
   .card-style {
     flex: 1 1 30%; /* Take up equal space initially */
+  }
+  .card-style .hero-image {
+    cursor: default;
   }
   .card-style:hover {
     flex: 1 1 50%; /* Expand to take more space on hover */
