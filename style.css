@@ -1875,7 +1875,8 @@ html {
 
 .bounce-on-scroll.show {
   opacity: 1;
-  animation: bounce-twice 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+  transform: scale(1);
+  animation: bounce-twice 1.2s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 @keyframes bounce-twice {
