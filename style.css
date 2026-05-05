@@ -790,9 +790,9 @@ body {
 .card-badges span {
   font-family: 'Work Sans', sans-serif;
   font-size: clamp(0.7rem, 1vw, 0.8rem);
-  font-weight: 600;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  border-radius: 12px;
   background-color: #f0f8ff;
   color: #0068B7;
   border: 1px solid rgba(0, 104, 183, 0.2);
@@ -804,11 +804,11 @@ body {
   display: inline-block;
   margin-top: auto;
   font-family: 'Work Sans', sans-serif;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 0.95rem;
   color: #fff;
   background: #0068B7;
-  border-radius: 4px;
+  border-radius: 12px;
   padding: 0.7rem 0;
   width: 180px;
   text-align: center;
