@@ -234,6 +234,10 @@
             <div class="card-details">
               <h3>SPOGOMI WORLD CUP 2025 INDIA QUALIFIERS CHENNAI FINALS</h3>
             </div>
+            <div class="card-info-row">
+              <div class="card-info-box card-info-trash">♻️ Trash Collected</div>
+              <div class="card-info-box card-info-date">Apr 27, 2025</div>
+            </div>
             <a href="gallery-chennai.html" class="view-more-btn-card">View More</a>
           </div>
 
@@ -244,6 +248,10 @@
             <div class="card-details">
               <h3>SPOGOMI WORLD CUP 2025 INDIA QUALIFIERS BENGALURU LEG</h3>
             </div>
+            <div class="card-info-row">
+              <div class="card-info-box card-info-trash">♻️ Trash Collected</div>
+              <div class="card-info-box card-info-date">Mar 30, 2025</div>
+            </div>
             <a href="gallery-2025.html" class="view-more-btn-card">View More</a>
           </div>
 
@@ -253,6 +261,10 @@
             </a>
             <div class="card-details">
               <h3>SPOGOMI WORLD CUP 2023 INDIA QUALIFIERS</h3>
+            </div>
+            <div class="card-info-row">
+              <div class="card-info-box card-info-trash">♻️ Trash Collected</div>
+              <div class="card-info-box card-info-date">Jul 9, 2023</div>
             </div>
             <a href="gallery-2023.html" class="view-more-btn-card">View More</a>
           </div>
@@ -382,11 +394,12 @@
   </script>
 
   <!-- DEEPSEEK ENHANCEMENTS -->
-  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Back to top">&#8593;</button>
 
   <script>
     /* Clean scroll handlers — no gimmicks */
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       var progressBar = document.getElementById('scrollProgress');
       var navBar = document.querySelector('.navbar');
       var backBtn = document.getElementById('backToTop');
@@ -407,14 +420,14 @@
     }, { passive: true });
 
     /* Button Ripple Effect */
-    document.querySelectorAll('.sign-up-v, .sign-up-t, .cosplay').forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
+    document.querySelectorAll('.sign-up-v, .sign-up-t, .cosplay').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
         var rect = this.getBoundingClientRect();
         var size = Math.max(rect.width, rect.height);
         var span = document.createElement('span');
-        span.style.cssText = 'position:absolute;border-radius:50%;background:rgba(255,255,255,0.4);width:' + size + 'px;height:' + size + 'px;left:' + (e.clientX - rect.left - size/2) + 'px;top:' + (e.clientY - rect.top - size/2) + 'px;transform:scale(0);animation:ripple 0.6s ease-out;pointer-events:none;';
+        span.style.cssText = 'position:absolute;border-radius:50%;background:rgba(255,255,255,0.4);width:' + size + 'px;height:' + size + 'px;left:' + (e.clientX - rect.left - size / 2) + 'px;top:' + (e.clientY - rect.top - size / 2) + 'px;transform:scale(0);animation:ripple 0.6s ease-out;pointer-events:none;';
         this.appendChild(span);
-        setTimeout(function() { span.remove(); }, 600);
+        setTimeout(function () { span.remove(); }, 600);
       });
     });
 
@@ -430,7 +443,7 @@
       t.textContent = msg;
       t.style.opacity = '1';
       clearTimeout(t._timeout);
-      t._timeout = setTimeout(function() { t.style.opacity = '0'; }, 1500);
+      t._timeout = setTimeout(function () { t.style.opacity = '0'; }, 1500);
     }
 
     /* Force page to top on reload (prevent scroll restoration) */
@@ -439,9 +452,9 @@
     }
 
     /* Clean URL hash after anchor jump */
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       if (window.location.hash) {
-        setTimeout(function() {
+        setTimeout(function () {
           history.replaceState(null, null, window.location.pathname + window.location.search);
         }, 50);
       } else {
@@ -450,8 +463,8 @@
     });
 
     /* Disable gallery image links on desktop (only View More button works) */
-    document.querySelectorAll('.card-style .hero-image').forEach(function(link) {
-      link.addEventListener('click', function(e) {
+    document.querySelectorAll('.card-style .hero-image').forEach(function (link) {
+      link.addEventListener('click', function (e) {
         if (window.innerWidth >= 992) {
           e.preventDefault();
         }

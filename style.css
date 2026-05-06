@@ -777,6 +777,37 @@ body {
   min-height: 120px;
 }
 
+.card-info-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.card-info-box {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.card-info-trash {
+  background: #e0f5f7;
+  color: #00838f;
+  border: 2px solid #e0f5f7;
+}
+
+.card-info-date {
+  background: #f0f4ff;
+  color: #3a5a8c;
+  border: 2px solid #f0f4ff;
+}
+
 .view-more-btn-card {
   display: inline-block;
   margin-top: auto;
