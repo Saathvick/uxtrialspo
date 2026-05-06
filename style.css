@@ -716,10 +716,9 @@ body {
     max-width: 360px;
     min-width: unset;
   }
-  .card-info-row {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+  .card-info-box {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.55rem;
   }
 }
 
